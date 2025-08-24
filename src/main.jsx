@@ -1,16 +1,17 @@
 
 import { StrictMode } from 'react'
-
+import Layout from './components/Layout.jsx'
 import Home from './pages/Home.jsx'
 import About from './pages/About.jsx'
-import Contact from './pages/Contact.jsx'
-import Layout from './components/Layout.jsx'
-import Todo from './components/Todo.jsx'
-import Quiz from './components/Quiz.jsx'
+import Recipe from './pages/Recipe.jsx'
+import AddRecipe from './pages/AddRecipe.jsx'
+
 import { createRoot } from 'react-dom/client'
 import { BrowserRouter ,RouterProvider,createBrowserRouter} from 'react-router'
 import './index.css'
 import App from './App.jsx'
+import {store} from './store/store.js'
+import {Provider} from 'react-redux'
 
 const router = createBrowserRouter([
 	{
@@ -26,16 +27,12 @@ const router = createBrowserRouter([
 				element:<About />
 			},
 			{
-				path:'/contact',
-				element:<Contact />
+				path:'/recipe',
+				element:<Recipe />
 			},
 			{
-				path:'/todo',
-				element:<Todo />
-			},
-			{
-				path:'/quizapp',
-				element:<Quiz />
+				path:'/addrecipe',
+				element:<AddRecipe />
 			}
 		]
 	}
@@ -44,8 +41,12 @@ const router = createBrowserRouter([
 createRoot(document.getElementById('root')).render(
 	//<BrowserRouter >
  // <StrictMode>
-   // <App />
   //</StrictMode>,
 	//</BrowserRouter >
+	
+   	//<App />
+	<Provider store={store}>
 	<RouterProvider router={router} />
+	</Provider>
+	
 )
