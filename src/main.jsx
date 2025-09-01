@@ -5,6 +5,9 @@ import Home from './pages/Home.jsx'
 import About from './pages/About.jsx'
 import Recipe from './pages/Recipe.jsx'
 import AddRecipe from './pages/AddRecipe.jsx'
+import SingleRecipe from './pages/SingleRecipe.jsx'
+import AddedSingleRecipe from './pages/AddedSingleRecipe.jsx'
+import UpdateRecipe from './pages/UpdateRecipe.jsx'
 
 import { createRoot } from 'react-dom/client'
 import { BrowserRouter ,RouterProvider,createBrowserRouter} from 'react-router'
@@ -33,6 +36,18 @@ const router = createBrowserRouter([
 			{
 				path:'/addrecipe',
 				element:<AddRecipe />
+			},
+			{
+				path:'/recipe/:id',
+				element:<SingleRecipe />
+			},
+			{
+				path:'/addedsinglerecipe',
+				element:<AddedSingleRecipe />
+			},
+			{
+				path:'/updaterecipe/:id',
+				element:<UpdateRecipe />
 			}
 		]
 	}
